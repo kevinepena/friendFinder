@@ -50,7 +50,7 @@
                         </div>
 
                         <div class="input-field col s12">
-                            <select>
+                            <select id="q1a">
                                 <option id="q1" value="" disabled selected>Your mind is always buzzing with unexplored ideas and plans.</option>
                                 <option value="1">1 (Strongly Disagree)</option>
                                 <option value="2">2</option>
@@ -62,7 +62,7 @@
                         </div>
 
                         <div class="input-field col s12">
-                            <select>
+                            <select id="q2a">
                                 <option id="q2" value="" disabled selected>Generally speaking, you rely more on your experience than your imagination.</option>
                                 <option value="1">1 (Strongly Disagree)</option>
                                 <option value="2">2</option>
@@ -74,7 +74,7 @@
                         </div>
 
                         <div class="input-field col s12">
-                            <select>
+                            <select id="q3a">
                                 <option id="q3" value="" disabled selected>You find it easy to stay relaxed and focused even when there is some pressure.</option>
                                 <option value="1">1 (Strongly Disagree)</option>
                                 <option value="2">2</option>
@@ -86,7 +86,7 @@
                         </div>
 
                         <div class="input-field col s12">
-                            <select>
+                            <select id="q4a">
                                 <option id="q4" value="" disabled selected>You rarely do something just out of sheer curiosity.</option>
                                 <option value="1">1 (Strongly Disagree)</option>
                                 <option value="2">2</option>
@@ -98,7 +98,7 @@
                         </div>
 
                         <div class="input-field col s12">
-                            <select>
+                            <select id="q5a">
                                 <option id="q5" value="" disabled selected>People can rarely upset you.</option>
                                 <option value="1">1 (Strongly Disagree)</option>
                                 <option value="2">2</option>
@@ -110,7 +110,7 @@
                         </div>
 
                         <div class="input-field col s12">
-                            <select>
+                            <select id="q6a">
                                 <option id="q6" value="" disabled selected>It is often difficult for you to relate to other people’s feelings.</option>
                                 <option value="1">1 (Strongly Disagree)</option>
                                 <option value="2">2</option>
@@ -122,7 +122,7 @@
                         </div>
 
                         <div class="input-field col s12">
-                            <select>
+                            <select id="q7a">
                                 <option id="q7" value="" disabled selected>In a discussion, truth should be more important than people’s sensitivities.</option>
                                 <option value="1">1 (Strongly Disagree)</option>
                                 <option value="2">2</option>
@@ -134,7 +134,7 @@
                         </div>
 
                         <div class="input-field col s12">
-                            <select>
+                            <select id="q8a">
                                 <option id="q8" value="" disabled selected>You rarely get carried away by fantasies and ideas.</option>
                                 <option value="1">1 (Strongly Disagree)</option>
                                 <option value="2">2</option>
@@ -146,7 +146,7 @@
                         </div>
 
                         <div class="input-field col s12">
-                            <select>
+                            <select id="q9a">
                                 <option id="q9" value="" disabled selected>You think that everyone’s views should be respected regardless of whether they are supported
                                     by facts or not.</option>
                                 <option value="1">1 (Strongly Disagree)</option>
@@ -159,7 +159,7 @@
                         </div>
 
                         <div class="input-field col s12">
-                            <select>
+                            <select id="q10a">
                                 <option id="q10" value="" disabled selected>You feel more energetic after spending time with a group of people.</option>
                                 <option value="1">1 (Strongly Disagree)</option>
                                 <option value="2">2</option>
@@ -169,10 +169,19 @@
                             </select>
                             <label id="label10">Question 10</label>
                         </div>
-                        <a class="waves-effect waves-light btn" id="submitInfo">Submit</a>
+                        <a class="waves-effect waves-light btn modal-trigger" id="submitInfo" href="#modal1">Submit</a>
 
                 </div>
                 </form>
+                <div id="modal1" class="modal">
+                    <div class="modal-content">
+                        <h4>Modal Header</h4>
+                        <p>A bunch of text</p>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#!" data-target="modal1" href="#modal1" class=" waves-effect waves-green btn-flat modal-trigger">Agree</a>
+                    </div>
+                </div>
             </div>
 
 
@@ -180,22 +189,24 @@
                 crossorigin="anonymous"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
             <script type="text/javascript">
+            
                 $("select").formSelect();
+                $('.modal').modal();
 
                 $("#submitInfo").on("click", function (event) {
                     event.preventDefault();
                     var newFriend = {
                         name: $("#name").val().trim(),
-                        pic: $("#number").val().trim(),
-                        email: $("#email").val().trim(),
-                        id: $("#uniqueId").val().trim()
+                        pic: $("#link").val().trim(),
+                        scores: [$("#q1a").val(), $("#q2a").val(), $("#q3a").val(), $("#q4a").val(), $("#q5a").val(), $("#q6a").val(), $("#q7a").val(), $("#q8a").val(), $("#q9a").val(), $("#q10a").val(),]
                     };
 
-                    $.post("api/tables", newFriend)
+                    $.post("/api/friends", newFriend)
                         .then(function (data) {
                             console.log("add.html", data);
                             alert("Adding character...");
                         });
+
                 });
             </script>
 </body>

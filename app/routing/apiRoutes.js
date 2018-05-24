@@ -11,13 +11,9 @@ module.exports = function (app) {
         // This works because of our body-parser middleware
         var newfriend = req.body;
 
-        // Using a RegEx Pattern to remove spaces from newfriend
-        // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-        newfriend.name = newfriend.name.replace(/\s+/g, "").toLowerCase();
-
         console.log(newfriend);
 
-        friends.push(newfriend);
+        friendsData.push(newfriend);
 
         res.json(newfriend);
     });
