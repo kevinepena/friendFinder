@@ -179,7 +179,25 @@
             <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
                 crossorigin="anonymous"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-            <script src="app.js"></script>
+            <script type="text/javascript">
+                $("select").formSelect();
+
+                $("#submitInfo").on("click", function (event) {
+                    event.preventDefault();
+                    var newFriend = {
+                        name: $("#name").val().trim(),
+                        pic: $("#number").val().trim(),
+                        email: $("#email").val().trim(),
+                        id: $("#uniqueId").val().trim()
+                    };
+
+                    $.post("api/tables", newFriend)
+                        .then(function (data) {
+                            console.log("add.html", data);
+                            alert("Adding character...");
+                        });
+                });
+            </script>
 </body>
 
 </html>

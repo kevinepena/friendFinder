@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    
     $("select").formSelect();
 
     $("#submitInfo").on("click", function(event) {
