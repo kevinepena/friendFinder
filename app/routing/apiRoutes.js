@@ -26,21 +26,20 @@ module.exports = function (app) {
                 
                 ran += Math.abs(friendsData[i].scores[j] - newAnswers[j]);
 
-                if (ran < totalDifference) {
-                    totalDifference = ran;
-                    newName = friendsData[i].name;
-                    newPic = friendsData[i].photo;
-                }
             }
 
-
+            if (ran <= totalDifference) {
+                totalDifference = ran;
+                newName = friendsData[i].name;
+                newPic = friendsData[i].pic;
+            }
         }
 
         friendsData.push(newfriend);
 
         res.json({
             matchName: newName, 
-            matchImage: newPic});
+            matchPic: newPic});
  
     });
 

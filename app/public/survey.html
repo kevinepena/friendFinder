@@ -206,7 +206,7 @@
                     $.post('/api/friends', newFriend)
                         .then(function (data) {
                             $('#matchName').html(data.matchName);
-                            $("#matchPic").attr("src", data.matchImage);
+                            $("#matchPic").attr("src", data.matchPic);
                         });
                 });
 

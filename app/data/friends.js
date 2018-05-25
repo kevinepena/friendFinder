@@ -8,16 +8,16 @@ var friendArray = [
     },
     {
         name: "Snarf",
-        pic: "https://kevinepena.github.io/basicPortfolio/assets/images/me.jpg",
+        pic: "https://picsum.photos/200",
         scores: [
-            "5", "1", "3", "2", "5", "1", "2", "5", "4", "1"
+            "5", "5", "5", "5", "5", "5", "5", "5", "5", "5"
         ]
     },
     {
         name: "random",
-        pic: "https://kevinepena.github.io/basicPortfolio/assets/images/me.jpg",
+        pic: "https://picsum.photos/200",
         scores: [
-            "5", "1", "3", "2", "5", "1", "4", "5", "4", "1"
+            "1", "1", "1", "1", "1", "1", "1", "1", "1", "1"
         ]
     }
 ]
