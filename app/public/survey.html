@@ -175,8 +175,9 @@
                 </form>
                 <div id="modal1" class="modal">
                     <div class="modal-content">
-                        <h4>Modal Header</h4>
-                        <p>A bunch of text</p>
+                        <h4>Best Match</h4>
+                        <h5 id="matchName"></h5>
+                        <img id="matchPic" src="">
                     </div>
                     <div class="modal-footer">
                         <a href="#!" data-target="modal1" href="#modal1" class=" waves-effect waves-green btn-flat modal-trigger">Agree</a>
@@ -191,7 +192,7 @@
             <script type="text/javascript">
 
                 $("select").formSelect();
-                $('.modal').modal();
+
 
                 $("#submitInfo").on("click", function (event) {
                     event.preventDefault();
@@ -200,36 +201,18 @@
                         pic: $("#link").val().trim(),
                         scores: [$("#q1a").val(), $("#q2a").val(), $("#q3a").val(), $("#q4a").val(), $("#q5a").val(), $("#q6a").val(), $("#q7a").val(), $("#q8a").val(), $("#q9a").val(), $("#q10a").val(),]
                     };
-                    $.get("/api/friends", function (data) {
-                        console.log(data);
+                    $('.modal').modal();
 
-                        var ran = 40;
-
-                        for (var i = 0; i < data.length; i++) {
-                            var check = data[i].scores;
-
-                            for (var j = 0; j < 10; i++) {
-                                var newRan;
-                                newRan += Math.abs(check[j] - newFriend.scores[j]);
-                                if (newRan < ran) {
-                                    ran = newRan;
-                                }
-                            }
-
-                            console.log(ran)
-                        }
-
-                    });
-
-                    $.post("/api/friends", newFriend)
+                    $.post('/api/friends', newFriend)
                         .then(function (data) {
-                            console.log(data);
-
-                        })
-
-
-
+                            $('#matchName').html(data.matchName);
+                            $("#matchPic").attr("src", data.matchImage);
+                        });
                 });
+
+
+
+
             </script>
 </body>
 
