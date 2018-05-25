@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 require("./app/routing/apiRoutes.js")(app);
 require("./app/routing/htmlRoutes.js")(app);
 
-// we need a listner for it to work, duh
+// listener
 app.listen(PORT, function() {
   console.log("App listening on PORT: " + PORT);
 });

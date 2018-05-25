@@ -189,7 +189,7 @@
                 crossorigin="anonymous"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
             <script type="text/javascript">
-            
+
                 $("select").formSelect();
                 $('.modal').modal();
 
@@ -200,12 +200,34 @@
                         pic: $("#link").val().trim(),
                         scores: [$("#q1a").val(), $("#q2a").val(), $("#q3a").val(), $("#q4a").val(), $("#q5a").val(), $("#q6a").val(), $("#q7a").val(), $("#q8a").val(), $("#q9a").val(), $("#q10a").val(),]
                     };
+                    $.get("/api/friends", function (data) {
+                        console.log(data);
+
+                        var ran = 40;
+
+                        for (var i = 0; i < data.length; i++) {
+                            var check = data[i].scores;
+
+                            for (var j = 0; j < 10; i++) {
+                                var newRan;
+                                newRan += Math.abs(check[j] - newFriend.scores[j]);
+                                if (newRan < ran) {
+                                    ran = newRan;
+                                }
+                            }
+
+                            console.log(ran)
+                        }
+
+                    });
 
                     $.post("/api/friends", newFriend)
                         .then(function (data) {
-                            console.log("add.html", data);
-                            alert("Adding character...");
-                        });
+                            console.log(data);
+
+                        })
+
+
 
                 });
             </script>

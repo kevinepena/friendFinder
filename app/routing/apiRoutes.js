@@ -5,7 +5,7 @@ module.exports = function (app) {
         return res.json(friendsData);
     });
 
-    // Create New Characters - takes in JSON input
+    // Create New Friends - takes in JSON input
     app.post("/api/friends", function (req, res) {
         // req.body hosts is equal to the JSON post sent from the user
         // This works because of our body-parser middleware
@@ -17,5 +17,7 @@ module.exports = function (app) {
 
         res.json(newfriend);
     });
+
+    
 
 }
