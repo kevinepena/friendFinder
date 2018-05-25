@@ -8,14 +8,14 @@ var friendArray = [
     },
     {
         name: "Snarf",
-        pic: "https://picsum.photos/200",
+        pic: "https://picsum.photos/200/200/?random",
         scores: [
             "5", "5", "5", "5", "5", "5", "5", "5", "5", "5"
         ]
     },
     {
         name: "random",
-        pic: "https://picsum.photos/200",
+        pic: "https://picsum.photos/200/200/?random",
         scores: [
             "1", "1", "1", "1", "1", "1", "1", "1", "1", "1"
         ]
