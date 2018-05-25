@@ -1,7 +1,7 @@
 var friendArray = [
     {
         name: "Kevin",
-        pic: "https://kevinepena.github.io/basicPortfolio/assets/images/me.jpg",
+        pic: "https://picsum.photos/200/200/?random",
         scores: [
             "5", "1", "3", "4", "5", "1", "2", "5", "4", "1"
         ]
@@ -14,7 +14,7 @@ var friendArray = [
         ]
     },
     {
-        name: "random",
+        name: "Jim",
         pic: "https://picsum.photos/200/200/?random",
         scores: [
             "1", "1", "1", "1", "1", "1", "1", "1", "1", "1"
